@@ -134,3 +134,16 @@ declare function stats:format-decimal(
   return  
     format-number($num, $zeros) cast as xs:double
 };
+
+(:~
+ : Calculates the product of a sequece of xs:doubles
+ :
+ : @param $nums a sequence of xs:doubles
+ : @param product of $nums as xs:doubles
+ :)
+declare function stats:product(
+  $nums as xs:double+
+) as xs:double {
+  for $n in $nums return
+    fold-left($n, 1, function($a, $b) { $a * $b })
+};
