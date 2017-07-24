@@ -116,12 +116,23 @@ function test:format-decimal() {
 };
 
 (:~
- : stats:product with xs:doubles
+ : stats:product with xs:integers
  :)
 declare
   %unit:test
 function test:product-4() {
   unit:assert-equals(
     stats:product((1, 2, 3, 4)), 24
+  )
+};
+
+(:~
+ : stats:product with xs:numerics
+ :)
+declare
+  %unit:test
+function test:product-4.0() {
+  unit:assert-equals(
+    stats:product((1.0, 2, 3.0, 4)), 24
   )
 };
