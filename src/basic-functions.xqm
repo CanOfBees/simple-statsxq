@@ -139,7 +139,7 @@ declare function stats:format-decimal(
  : Calculates the product of a sequece of xs:doubles
  :
  : @param $nums a sequence of xs:doubles
- : @param product of $nums as xs:doubles
+ : @return product of $nums as xs:doubles
  :)
 declare function stats:product(
   $nums as xs:double+
