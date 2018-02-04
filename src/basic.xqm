@@ -203,3 +203,19 @@ declare function basic:quantile(
             else $sorted-nums[fn:position() = $rounded]
     )
 };
+
+(:~
+ : Calculates the Z-Score
+ :
+ : @param $x a single point of data
+ : @param $m the mean of the population
+ : @param $s the standard deviation of the population
+ : @return $zScore
+ :)
+declare function basic:z-score(
+  $x as xs:numeric,
+  $m as xs:numeric,
+  $s as xs:numeric
+) as xs:numeric {
+  ($x - $m) div $s
+};
