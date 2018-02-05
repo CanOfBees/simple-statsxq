@@ -205,6 +205,20 @@ declare function basic:quantile(
 };
 
 (:~
+ : Calculates the standard deviation of the mean for a population
+ :
+ : @param $nums a sequence of xs:numerics
+ : @param $pow as an xs:integer
+ : @return $std-dev as xs:numeric
+ :)
+declare function basic:std-dev(
+  $nums as xs:numeric+,
+  $pow as xs:integer
+) as xs:numeric {
+
+};
+
+(:~
  : Calculates the Z-Score
  :
  : @param $x a single point of data
