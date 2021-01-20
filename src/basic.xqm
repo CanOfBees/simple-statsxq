@@ -208,14 +208,32 @@ declare function basic:quantile(
  : Calculates the standard deviation of the mean for a population
  :
  : @param $nums a sequence of xs:numerics
- : @param $pow as an xs:integer
+ :
  : @return $std-dev as xs:numeric
  :)
-declare function basic:std-dev(
-  $nums as xs:numeric+,
-  $pow as xs:integer
-) as xs:numeric {
+declare function basic:std-dev-pop(
+  $nums as xs:numeric+
+) as xs:numeric+ {
+	$nums => basic:pvar() => math:sqrt()
+};
 
+(:~
+ : Calculates the standard deviation of the mean for a population
+ : with an option to format the number of decimal places in the
+ : result.
+ :
+ : @param $nums a sequence of xs:doubles.
+ : @param $places an xs:integer indicating the number of decimal
+ :				places to outout.
+ : @return standard deviation of the population of $nums as
+ :				xs:double, formatted to the number of decimal places
+ : 				specified in $places.
+ :)
+declare function basic:std-dev-pop(
+	$nums as xs:numeric+,
+	$places as xs:integer
+) as xs:double {
+	$nums => basic:pvar() => math:sqrt() => basic:format-decimal($places)
 };
 
 (:~

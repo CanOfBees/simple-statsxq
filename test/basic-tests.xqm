@@ -184,3 +184,22 @@ function test:quantile-3() {
     basic:quantile((3, 6, 7, 8, 9), (0, .5, 1)), (3, 7, 9)
   )
 };
+
+(:~
+ : basic:std-dev-pop
+:)
+declare
+	%unit:test
+function test:std-dev-pop-1() {
+	unit:assert-equals(
+		basic:std-dev-pop((-5, 1, 8, 7, 2)), 4.673328578219169
+	)
+};
+
+declare
+	%unit:test
+function test:std-dev-pop-2() {
+	unit:assert-equals(
+		basic:std-dev-pop((-5, 1, 8, 7, 2), 2), 4.67
+	)
+};
