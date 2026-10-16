@@ -203,3 +203,11 @@ function test:std-dev-pop-2() {
 		basic:std-dev-pop((-5, 1, 8, 7, 2), 2), 4.67
 	)
 };
+
+declare
+  %unit:test
+function test:z-score-1() {
+  unit:assert-equals(
+    basic:z-score(78, 80, 5), -0.4
+  )
+};
