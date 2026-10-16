@@ -237,17 +237,17 @@ declare function basic:std-dev-pop(
 };
 
 (:~
- : Calculates the Z-Score
+ : Calculates the Z-Score, or Standard Score.
  :
  : @param $x a single point of data
- : @param $m the mean of the population
- : @param $s the standard deviation of the population
+ : @param $mean the mean of the population
+ : @param $standard-deviation the standard deviation of the population
  : @return $zScore
  :)
 declare function basic:z-score(
   $x as xs:numeric,
-  $m as xs:numeric,
-  $s as xs:numeric
+  $mean as xs:numeric,
+  $standard-deviation as xs:numeric
 ) as xs:numeric {
-  ($x - $m) div $s
+  ($x - $mean) div $standard-deviation
 };
